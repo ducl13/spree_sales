@@ -9,6 +9,10 @@ module Spree
         @products = Spree::Product.in_sale
       end
       @taxonomies = Spree::Taxonomy.includes(root: :children)
+
+      if @products.count == 0
+        redirect_to root_path
+      end
     end
   end
 end
