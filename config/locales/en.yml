@@ -18,6 +18,7 @@ en:
       percent_off_sale_price_calculator:
         name: Percent off sale price
     all_currencies: All in use
+    coupon_code_not_eligible: This coupon code is not eligible for this order. If there are sales items, please place a separate order.
   activerecord:
     attributes:
       spree/sale_price:
