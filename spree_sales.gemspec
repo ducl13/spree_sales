@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  s.add_dependency 'spree_core', '>= 3.1.0', '< 3.9.0'
+  s.add_dependency 'spree_core', '>= 3.1.0', '< 5.0.0'
   s.add_dependency 'spree_extension'
   s.add_dependency 'date_validator'
 
