@@ -16,6 +16,29 @@ Spree::BaseHelper.class_eval do
     end
   end
 
+  def display_highest_discount_percent(product)
+    highest_disccount_sale_price = product.sale_prices.active.max_by { |sale_price| sale_price.price.variant.discount_percent_in current_currency }
+    if highest_disccount_sale_price.present?
+      discount = highest_disccount_sale_price.price.variant.discount_percent_in current_currency
+    else
+      discount = 0
+    end
+
+    if product.sale_prices.active.count > 1
+      prepend_text = "Up to "
+      append_text = "Off"
+    else
+      prepend_text = ""
+      append_text = ""
+    end
+
+    if discount > 0
+      return "#{prepend_text}#{number_to_percentage(discount, precision: 0).to_html} #{append_text}"
+    else
+      return ""
+    end
+  end
+
   # Check if a sale is the current sale for a product, returns true or false
   def active_for_sale_price product, sale_price
     product.current_sale_in(Spree::Config[:currency]) == sale_price
