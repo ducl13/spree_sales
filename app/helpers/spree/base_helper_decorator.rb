@@ -29,7 +29,7 @@ Spree::BaseHelper.class_eval do
       append_text = "Off"
     else
       prepend_text = ""
-      append_text = ""
+      append_text = "Off"
     end
 
     if discount > 0
