@@ -26,10 +26,10 @@ Spree::BaseHelper.class_eval do
 
     if product.sale_prices.active.count > 1
       prepend_text = "Up to "
-      append_text = "Off"
+      append_text = "OFF"
     else
       prepend_text = ""
-      append_text = "Off"
+      append_text = "OFF"
     end
 
     if discount > 0
